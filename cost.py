@@ -13,9 +13,8 @@ def     h_func(thethas, x):
 def     cost_func(thethas, x, y):
         total = 0
         for i in range(len(y)):
-                for j in range(len(x)):
-                        res = ((h_func(thethas[i], x[i]) - y[i]) ** 2)
-                        total = total + res
+                res = ((h_func(thethas[i], x[i]) - y[i]) ** 2)
+                total = total + res
         total = total / float(2 * len(x))
         return (total)
 

@@ -26,20 +26,16 @@ def substract_mean(mean, arr):
                 arr[i] = arr[i] - mean
         return arr
 
-def prepare_arrs(arr1, arr2):
-        x = []
-        y = []
-        arr1 = arr1.split(' ')
-        arr2 = arr2.split(' ')
-        for elem in arr1:
-                x.append(float(elem))
-        y.append(0.0)
-        for elem in arr2:
-                y.append(float(elem))
-        return x, y
+def prepare_arrs(arr):
+        data = []
+        arr = arr.split('\t')
+        for elem in arr:
+                data.append(float(elem))
+        return data
 
 def main():
-        x, y = prepare_arrs(sys.argv[1], sys.argv[2])
+        x = prepare_arrs(sys.argv[1])
+        y = prepare_arrs(sys.argv[2])
         x_mean = substract_mean(mean(x), x)
         y_mean = substract_mean(mean(y), y)
         print(x_mean)
